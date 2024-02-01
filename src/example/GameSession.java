@@ -59,10 +59,10 @@ public class GameSession {
         }
 
         if (addNewCoordinate(move)) {
-            State gameState = checkIfWinGame();
-            if (gameState!=State.WIN) {
-                gameState = checkIfDraw();
-            }
+            State gameState = (checkIfWinGame()!=State.WIN) ? checkIfDraw() : state;
+//            if (gameState!=State.WIN) {
+//                gameState = checkIfDraw();
+//            }
             countMove++;
             return gameState;
         }
